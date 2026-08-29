@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Tiffin Services | Authentic Maharashtrian Ghar Ka Khana</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #ff6b35;
+      --primary-dark: #e8590c;
+      --accent: #ffc107;
+      --dark-bg: #0f141c;
+      --card-bg: rgba(26, 34, 46, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.06) 0%, transparent 40%);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(15px);
+      background: rgba(15, 20, 28, 0.85);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn-contact {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 3rem 6%;
+      gap: 3rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 107, 53, 0.15);
+      border: 1px solid var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.9rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: white;
+      padding: 0.9rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .hero-3d-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card-3d {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      transform-style: preserve-3d;
+    }
+
+    .rating-bubble {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+      margin-bottom: 1.2rem;
+    }
+
+    .card-3d h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-3d ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-3d ul li {
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+
+    .card-3d ul li i {
+      color: #22c55e;
+    }
+
+    .tag-3d {
+      display: block;
+      text-align: center;
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px dashed var(--primary);
+      padding: 0.8rem;
+      border-radius: 12px;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 4rem 6%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .service-card, .review-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.2rem;
+      backdrop-filter: blur(10px);
+      min-height: 270px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-inner-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-inner-content.fade-out {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .service-card .icon-box {
+      width: 55px;
+      height: 55px;
+      border-radius: 14px;
+      background: rgba(255, 107, 53, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      flex-shrink: 0;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .notice-banner {
+      background: linear-gradient(90deg, rgba(255, 107, 53, 0.15), rgba(255, 193, 7, 0.15));
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      border-radius: 16px;
+      padding: 1.2rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 2rem 6%;
+    }
+
+    .notice-banner i {
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .booking-wrapper, .suggestion-wrapper {
+      max-width: 750px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .form-control {
+      background: rgba(15, 20, 28, 0.8);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    .review-stars {
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .review-card p {
+      font-style: italic;
+      color: #cbd5e1;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .reviewer {
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .contact-container {
+      background: linear-gradient(145deg, #161e2b, #0e141d);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item i {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem 6%;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      padding: 4px 12px;
+      border-radius: 50px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 950px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero, .contact-container, .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .notice-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">
+      <i class="fa-solid fa-utensils"></i> Sai <span>Tiffin</span>
+    </a>
+    <nav>
+      <a href="#services">Our Qualities</a>
+      <a href="#booking">Book Tiffin</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#suggestions">Suggestions</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:09322161563" class="btn-contact"><i class="fa-solid fa-phone"></i> Call</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="badge">
+        <i class="fa-solid fa-fire"></i> Authentic Maharashtrian Taste
+      </div>
+      <h1>Authentic Maharashtrian <span>Ghar Ka Khana</span></h1>
+      <p>
+        Healthy, hygienic daily tiffins with refined oil and authentic homestyle flavors. Available for <strong>Home/Office Delivery</strong> & <strong>Self Takeaway</strong>, featuring <strong>Half Tiffin options for office</strong>, Thursday veg specials, and Friday Egg Curry.
+      </p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn-primary">
+          <i class="fa-solid fa-calendar-check"></i> Book Your Tiffin
+        </a>
+        <a href="tel:09322161563" class="btn-secondary">
+          <i class="fa-solid fa-phone"></i> 093221 61563
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-3d-wrapper">
+      <div class="card-3d" data-tilt data-tilt-max="15">
+        <div class="rating-bubble">
+          <i class="fa-solid fa-star"></i> 4.9 Rating (110+ Reviews)
+        </div>
+        <h3>Daily Meal Highlights</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Full & Office Half Tiffins</strong> available</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Takeaway & Delivery</strong> (Under 1.5 km)</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Thursday:</strong> Special Pure Veg Dishes</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Friday:</strong> Homestyle Egg Curry Special</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Chicken:</strong> Strictly on Advance Order (2-3 days)</li>
+        </ul>
+        <div class="tag-3d">
+          <i class="fa-solid fa-bag-shopping"></i> Takeaway & 1.5 km Delivery Available
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="notice-banner">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <div>
+      <h4 style="color: #fff; margin-bottom: 4px;">Important Ordering & Menu Notice</h4>
+      <p style="color: #cbd5e1; font-size: 0.9rem;">
+        • Tiffin delivery available strictly under <strong>1.5 km</strong> (Self Takeaway is open for all).<br>
+        • <strong>Chicken dishes are not part of regular daily tiffins</strong> and are prepared only on <strong>advance order (2–3 days prior)</strong>.<br>
+        • <strong>Half Tiffins</strong> are specially available for office lunches!
+      </p>
+    </div>
+  </div>
+
+  <section class="section" id="booking">
+    <div class="section-title">
+      <h2>Book Your Tiffin</h2>
+      <p>Choose your portion, order type, and send your booking directly via WhatsApp.</p>
+    </div>
+
+    <div class="booking-wrapper" data-tilt data-tilt-max="5">
+      <form id="tiffinForm" onsubmit="handleBooking(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="custName"><i class="fa-solid fa-user"></i> Full Name</label>
+            <input type="text" id="custName" class="form-control" placeholder="e.g. Rahul Sharma" required />
+          </div>
+
+          <div class="form-group">
+            <label for="custPhone"><i class="fa-solid fa-phone"></i> Mobile Number</label>
+            <input type="tel" id="custPhone" class="form-control" placeholder="e.g. 9876543210" required />
+          </div>
+
+          <div class="form-group">
+            <label for="orderMode"><i class="fa-solid fa-truck-ramp-box"></i> Order Type</label>
+            <select id="orderMode" class="form-control" required>
+              <option value="Home / Office Delivery (Under 1.5 km)">Home / Office Delivery (Under 1.5 km)</option>
+              <option value="Self Takeaway / Pickup">Self Takeaway / Pickup</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="portionSize"><i class="fa-solid fa-box-archive"></i> Tiffin Size</label>
+            <select id="portionSize" class="form-control" required>
+              <option value="Full Tiffin (Complete Meal)">Full Tiffin (Complete Meal)</option>
+              <option value="Half Tiffin (Specially for Office)">Half Tiffin (Specially for Office)</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="mealCount"><i class="fa-solid fa-hashtag"></i> Number of Tiffins</label>
+            <input type="number" id="mealCount" class="form-control" min="1" value="1" required />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="deliveryAddress"><i class="fa-solid fa-location-dot"></i> Delivery Address / Office Location (or write 'Takeaway')</label>
+            <textarea id="deliveryAddress" rows="2" class="form-control" placeholder="Flat / Office no, building name, landmark in Hadapsar..." required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.05rem;">
+          <i class="fa-brands fa-whatsapp"></i> Confirm & Send Booking on WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-title">
+      <h2>Why Choose Sai Tiffin</h2>
+      <p>Prepared daily with high hygiene standards, refined oils, and pure homestyle care.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="service-card" data-tilt data-tilt-max="8">
+        <div class="card-inner-content" id="qualContent0"></div>
+      </div>
+      <div class="service-card" data-tilt data-tilt-max="8">
+        <div class="card-inner-content" id="qualContent1"></div>
+      </div>
+      <div class="service-card" data-tilt data-tilt-max="8">
+        <div class="card-inner-content" id="qualContent2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reviews" style="background: rgba(0,0,0,0.2);">
+    <div class="section-title">
+      <h2>Google Reviews</h2>
+      <p>Rated 4.9 Stars by over 110 customers in Hadapsar</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="review-card" data-tilt data-tilt-max="8">
+        <div class="card-inner-content" id="revContent0"></div>
+      </div>
+      <div class="review-card" data-tilt data-tilt-max="8">
+        <div class="card-inner-content" id="revContent1"></div>
+      </div>
+      <div class="review-card" data-tilt data-tilt-max="8">
+        <div class="card-inner-content" id="revContent2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact-container">
+      <div>
+        <h2 style="font-size: 1.8rem; margin-bottom: 1.2rem;">Location & Contact</h2>
+        
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Address</strong>
+            <p style="color: var(--text-muted); margin-top: 4px; font-size: 0.95rem;">
+              Govind Villa Sadhaba Baba, near LEISURE TOWN, Sadhunana Tupe Vasti, Sade Satra Nali, Hadapsar, Pune, Maharashtra 411028
+            </p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Phone</strong>
+            <p style="color: var(--text-muted); margin-top: 4px;">093221 61563</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+          <div>
+            <strong>Price Range</strong>
+            <p style="color: var(--text-muted); margin-top: 4px;">₹1 – ₹200 per person</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+        <a href="https://wa.me/919322161563" target="_blank" class="btn-primary" style="justify-content: center;">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a href="https://maps.google.com/?q=Govind+Villa+Sadhaba+Baba+near+LEISURE+TOWN+Hadapsar+Pune+411028" target="_blank" class="btn-secondary" style="justify-content: center;">
+          <i class="fa-solid fa-map-location-dot"></i> Open Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="suggestions" style="padding-top: 1rem;">
+    <div class="section-title">
+      <h2><i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i> Customer Suggestion Box</h2>
+      <p>Have a favorite Maharashtrian dish you'd love us to cook? Let us know your suggestions and feedback!</p>
+    </div>
+
+    <div class="suggestion-wrapper" data-tilt data-tilt-max="5">
+      <form id="suggestionForm" onsubmit="handleSuggestion(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="suggName"><i class="fa-solid fa-user"></i> Your Name</label>
+            <input type="text" id="suggName" class="form-control" placeholder="Enter your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="suggDish"><i class="fa-solid fa-bowl-rice"></i> Dish You Want in Menu</label>
+            <input type="text" id="suggDish" class="form-control" placeholder="e.g. Bharli Vangi, Dal Fry, Masale Bhaat..." required />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="suggMessage"><i class="fa-solid fa-comment-dots"></i> Feedback / Suggestions</label>
+            <textarea id="suggMessage" rows="3" class="form-control" placeholder="Tell us how we can make our tiffin service even better for you..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center; border-color: var(--accent); color: var(--accent);">
+          <i class="fa-brands fa-whatsapp"></i> Send Suggestion via WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Sai Tiffin Services • Hadapsar, Pune</p>
+    <div class="ai-badge">
+      <i class="fa-solid fa-wand-magic-sparkles"></i> Designed & Crafted with Gemini
+    </div>
+  </footer>
+
+  <script>
+    // Qualities Pool
+    const qualitiesPool = [
+      { icon: "fa-shield-halved", title: "100% Hygienic Cooking", desc: "Prepared in a clean homestyle kitchen using pure refined oil and fresh daily market vegetables." },
+      { icon: "fa-motorcycle", title: "Swift Local Delivery", desc: "Piping hot delivery under 1.5 km to ensure your lunch or dinner arrives fresh and on time." },
+      { icon: "fa-leaf", title: "Fresh Daily Ingredients", desc: "Zero stored or leftover gravies. Everything is cooked fresh from scratch every single morning and evening." },
+      { icon: "fa-briefcase", title: "Office Half & Full Tiffins", desc: "Customized portion sizes suited for busy professionals looking for light, wholesome office lunches." },
+      { icon: "fa-pepper-hot", title: "Authentic Maharashtrian Taste", desc: "Traditional home-ground spices giving you the real, authentic Ghar Ka Khana taste without excess oil." },
+      { icon: "fa-egg", title: "Friday Egg Curry Special", desc: "Every Friday relish our hearty and flavorful homestyle egg curry paired with hot chapatis or rice." },
+      { icon: "fa-seedling", title: "Thursday Pure Veg Thali", desc: "Special vegetarian delicacy cooked with satvik touch and maximum homestyle nutrition every Thursday." },
+      { icon: "fa-wallet", title: "Budget Friendly (₹1–₹200)", desc: "Top quality homemade food that is easy on the pocket for regular students and working individuals." }
+    ];
+
+    // Reviews Pool
+    const reviewsPool = [
+      { text: "Very tasty food it give me vibe of my home food it is very fresh and tasty.", reviewer: "Google Reviewer" },
+      { text: "Homemade hygiene food in affordable price. The best tiffin experience in Hadapsar.", reviewer: "Verified Customer" },
+      { text: "Healthy food option at reasonable price. Loved the soft chapatis and authentic sabzi!", reviewer: "Rudra Wagh" },
+      { text: "The Friday egg curry and Thursday veg meals are absolutely delicious! Always hot on arrival.", reviewer: "Local Resident" },
+      { text: "Perfect portion size for office lunches. Light on the stomach and zero oiliness.", reviewer: "IT Professional, Hadapsar" },
+      { text: "Real taste of mother's cooking. Great quality refined oil used, highly recommended!", reviewer: "Happy Customer" }
+    ];
+
+    function getRandomItems(array, count) {
+      const shuffled = [...array].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    // Smooth In-Place Cross-Fade for Qualities
+    function updateQualities() {
+      const selected = getRandomItems(qualitiesPool, 3);
+      const inners = [
+        document.getElementById("qualContent0"),
+        document.getElementById("qualContent1"),
+        document.getElementById("qualContent2")
+      ];
+
+      inners.forEach(el => el.classList.add("fade-out"));
+
+      setTimeout(() => {
+        inners.forEach((el, idx) => {
+          const item = selected[idx];
+          el.innerHTML = `
+            <div class="icon-box"><i class="fa-solid ${item.icon}"></i></div>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          `;
+          el.classList.remove("fade-out");
+        });
+      }, 450);
+    }
+
+    // Smooth In-Place Cross-Fade for Reviews
+    function updateReviews() {
+      const selected = getRandomItems(reviewsPool, 3);
+      const inners = [
+        document.getElementById("revContent0"),
+        document.getElementById("revContent1"),
+        document.getElementById("revContent2")
+      ];
+
+      inners.forEach(el => el.classList.add("fade-out"));
+
+      setTimeout(() => {
+        inners.forEach((el, idx) => {
+          const rev = selected[idx];
+          el.innerHTML = `
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>"${rev.text}"</p>
+            <div class="reviewer"><i class="fa-regular fa-circle-user"></i> ${rev.reviewer}</div>
+          `;
+          el.classList.remove("fade-out");
+        });
+      }, 450);
+    }
+
+    // Initialize content immediately
+    updateQualities();
+    updateReviews();
+
+    // Rotate every 6-7 seconds
+    setInterval(updateQualities, 7000);
+    setInterval(updateReviews, 6000);
+
+    // Initialize VanillaTilt for 3D cards
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      speed: 400,
+      perspective: 1000
+    });
+
+    // 100% Fail-Safe Hex UTF-8 WhatsApp booking handler (zero corrupted diamonds)
+    function handleBooking(e) {
+      e.preventDefault();
+      
+      const name = encodeURIComponent(document.getElementById('custName').value.trim());
+      const phone = encodeURIComponent(document.getElementById('custPhone').value.trim());
+      const mode = encodeURIComponent(document.getElementById('orderMode').value);
+      const portion = encodeURIComponent(document.getElementById('portionSize').value);
+      const count = encodeURIComponent(document.getElementById('mealCount').value);
+      const address = encodeURIComponent(document.getElementById('deliveryAddress').value.trim());
+
+      // Uses direct hex percent-encoding for emojis so no browser or compiler can corrupt them
+      const text = "%F0%9F%8D%B1%20*NEW%20TIFFIN%20ORDER%20-%20SAI%20TIFFIN%20SERVICES*%0A%0A" +
+                   "%F0%9F%91%A4%20*Name:*%20" + name + "%0A" +
+                   "%F0%9F%93%9E%20*Phone:*%20" + phone + "%0A" +
+                   "%F0%9F%9A%9A%20*Order%20Type:*%20" + mode + "%0A" +
+                   "%F0%9F%93%A6%20*Portion%20Size:*%20" + portion + "%0A" +
+                   "%F0%9F%94%A2%20*Quantity:*%20" + count + "%0A" +
+                   "%F0%9F%93%8D%20*Address%20/%20Details:*%20" + address + "%0A%0A" +
+                   "_Please%20confirm%20my%20order%20and%20approximate%20delivery/pickup%20time._";
+
+      window.open("https://api.whatsapp.com/send?phone=919322161563&text=" + text, '_blank');
+    }
+
+    // 100% Fail-Safe Hex UTF-8 WhatsApp suggestion handler
+    function handleSuggestion(e) {
+      e.preventDefault();
+
+      const name = encodeURIComponent(document.getElementById('suggName').value.trim());
+      const dish = encodeURIComponent(document.getElementById('suggDish').value.trim());
+      const msg = encodeURIComponent(document.getElementById('suggMessage').value.trim() || 'None');
+
+      const text = "%F0%9F%92%A1%20*CUSTOMER%20MENU%20SUGGESTION%20-%20SAI%20TIFFIN%20SERVICES*%0A%0A" +
+                   "%F0%9F%91%A4%20*Customer%20Name:*%20" + name + "%0A" +
+                   "%F0%9F%8D%B2%20*Dish%20Suggestion:*%20" + dish + "%0A" +
+                   "%F0%9F%92%AC%20*Additional%20Feedback:*%20" + msg;
+
+      window.open("https://api.whatsapp.com/send?phone=919322161563&text=" + text, '_blank');
+    }
+  </script>
+</body>
+</html>
